@@ -98,6 +98,13 @@ class Navigation extends Component {
           });
         },
       );
+
+      // above have a small bug: after adb install then first launch, pkg could be `com.android.systemui` (from mCurrentFocus)
+      // below works well if you can `import {applicationId} from 'expo-application'`
+      // utils.enableAppWatchdogd({ // if APP exit abnormally (killed or crashed), will be relaunched
+      //   shPath,
+      //   pkg: applicationId,
+      // });
     }
   };
 
